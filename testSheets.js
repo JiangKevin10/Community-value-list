@@ -13,7 +13,7 @@ async function main() {
   // Spaces in tab name => wrap in single quotes
   const appendRange = `'${tabName}'!A:B`;
 
-  const keyPath = path.join(__dirname, "service-account.json");
+  const keyPath = "C:\\Users\\firek\\OneDrive\\Documents\\Secret Keys\\service-account.json";
   console.log("Looking for key at:", keyPath);
   console.log("About to append to:", appendRange);
 
