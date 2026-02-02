@@ -1,5 +1,6 @@
 const { google } = require("googleapis");
 const path = require("path");
+require("dotenv").config();
 
 console.log("START: testSheets.js is running");
 
@@ -13,7 +14,12 @@ async function main() {
   // Spaces in tab name => wrap in single quotes
   const appendRange = `'${tabName}'!A:B`;
 
-  const keyPath = "C:\\Users\\firek\\OneDrive\\Documents\\Secret Keys\\discord-sheets-bot-key.json";
+const keyPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+if(!keyPath)
+{
+  console.log("error: GOOGLE_APPLICATION_CREDENTIALS is not set in .env");
+  return;
+}
   console.log("Looking for key at:", keyPath);
   console.log("About to append to:", appendRange);
 
